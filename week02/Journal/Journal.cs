@@ -37,41 +37,41 @@ public class Journal
         _entries.Add(entry);
     }
     public void Load()
-{
-    Console.WriteLine("What file should I load?");
-    string path = Console.ReadLine();
-
-    if (!File.Exists(path))
     {
-        Console.WriteLine("File not found.");
-        return;
-    }
+        Console.WriteLine("What file should I load?");
+        string path = Console.ReadLine();
 
-    string[] lines = File.ReadAllLines(path);
-
-    for (int i = 0; i < lines.Length;)
-    {
-        string date = lines[i++];
-        string prompt = lines[i++];
-        string entry = lines[i++];
-        string separator = lines[i++];
-
-        if (separator != "|||ENTRY_SEPARATOR|||")
+        if (!File.Exists(path))
         {
-            Console.WriteLine("Houston, we have a problem");
+            Console.WriteLine("File not found.");
             return;
         }
 
-        JournalEntry je = new JournalEntry
-        {
-            _date = date,
-            _prompt = prompt,
-            _entry = entry
-        };
-        _entries.Add(je);
-    }
+        string[] lines = File.ReadAllLines(path);
 
-    Console.WriteLine("Journal loaded.");
+        for (int i = 0; i < lines.Length;)
+        {
+            string date = lines[i++];
+            string prompt = lines[i++];
+            string entry = lines[i++];
+            string separator = lines[i++];
+
+            if (separator != "|||ENTRY_SEPARATOR|||")
+            {
+                Console.WriteLine("Houston, we have a problem");
+                return;
+            }
+
+            JournalEntry je = new JournalEntry
+            {
+                _date = date,
+                _prompt = prompt,
+                _entry = entry
+            };
+            _entries.Add(je);
+        }
+
+        Console.WriteLine("Journal loaded.");
 }
 
     public void Save()
