@@ -15,7 +15,7 @@ class Program
         Reference referenceobj;
         if (int.TryParse(wordsArray[0], out int bookNumber))
         {
-            // e.g. "2 Nephi"
+           
             bookName = wordsArray[0] + " " + wordsArray[1];
             reference = reference.Remove(0,2);
             
@@ -23,7 +23,7 @@ class Program
         }
         else
         {
-            // e.g. "Alma"
+            
             bookName = wordsArray[0];
             
         }
