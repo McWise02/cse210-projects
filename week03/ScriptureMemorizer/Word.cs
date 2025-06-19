@@ -1,6 +1,6 @@
 public class Word{
     private string _word;
-    private bool _isHidden;
+    private bool _isHidden = false;
 
     public Word(string word) {
         _word = word;

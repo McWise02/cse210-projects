@@ -2,7 +2,7 @@ public class Journal
 {
 
 
-    public string _name { get; set; }
+    public string _name;
     public List<JournalEntry> _entries = new List<JournalEntry>();
 
     public List<string> _prompts = new List<string>([
@@ -12,9 +12,6 @@ public class Journal
             "What was the strongest emotion I felt today?",
             "If I had one thing I could do over today, what would it be?"
         ]);
-    public Journal()
-    {
-    }
 
     public void Display()
     {
